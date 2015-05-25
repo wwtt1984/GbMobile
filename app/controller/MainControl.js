@@ -84,6 +84,9 @@ Ext.define('YzMobile.controller.MainControl', {
                     WYTool.queryComponent('main').setActiveItem(WYTool.queryComponent('login'));
                     WYTool.queryComponent('#login_placePick').setHtml(localStorage.getItem('siteName'));
 
+
+                    ///////
+
                     // 一些初始化变量
                     //YzMobile.app.mapCenter[0] = record.data.ScenterLng;
                     //YzMobile.app.mapCenter[1] = record.data.ScenterLat;
