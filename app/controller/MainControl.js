@@ -5,7 +5,6 @@
 Ext.define('YzMobile.controller.MainControl', {
     extend: 'Ext.app.Controller',
     requires: [
-        //'Ext.app.Route '
     ],
 
     config: {
