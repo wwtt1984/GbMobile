@@ -6,7 +6,7 @@
             "phonegap" : {
                 "config": {
                     // Uncomment the line below and add the platform you wish to build for
-                    "platform": "android",
+                    "platform": "ios",
 
                     // Uncomment and Set this line to true to enable PhoneGap Remote Building.
                     // To properly use this you must set the following properties in your local.properties file (if this file does not exist create it in your app root)

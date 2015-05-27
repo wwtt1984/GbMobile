@@ -60,7 +60,6 @@ Ext.define('YzMobile.controller.GisControl', {
     OnComplete:function()
     {
         this.map = this.getAmap().getMap();
-        debugger;
        // this.map.setZoomAndCenter(YzMobile.app.mapCenter[2], new AMap.LngLat(YzMobile.app.mapCenter[0],YzMobile.app.mapCenter[1]));
         this.map.setZoomAndCenter(localStorage.getItem('mapZoom'), new AMap.LngLat(localStorage.getItem('mapLng'),localStorage.getItem('mapLat')));
 
