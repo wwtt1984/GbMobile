@@ -19,10 +19,17 @@ Ext.define('YzMobile.controller.ContactControl', {
         control: {
             contactList: {
                 initialize: function () {
-                    Ext.ComponentQuery.query('#infomore')[0].show();
+                  //  WYTool.queryComponent('#infomore').show();
                     this.listInfo = {type: 'name', index: 0, value: '', isLast: false}; // list显示需要的相关的参数
                     this.listBackStack = []; // 缓存返回需要的数据
                 },
+                //show: function () {
+                //    debugger;
+                //},
+                //hide:function(){
+                //    WYTool.queryComponent('#infomore').hide();
+                //},
+
                 itemtap: 'onContactListTap',
                 itemtaphold: 'onContactListLongTap'
             },
@@ -30,11 +37,19 @@ Ext.define('YzMobile.controller.ContactControl', {
                 initialize: function () {
                     WYTool.queryComponent('#infofunction').hide();
                     WYTool.queryComponent('#showByWhat').hide();
+                    WYTool.queryComponent('#infoBack').hide();
+
 
                     var store = Ext.getStore('ContactSearchStore');
                     Ext.data.proxy.SkJsonp.setUrl(localStorage.getItem('proxyUrl'));
                     Ext.data.proxy.SkJsonp.loadStore(store, 'GetAdressSearch', null);
                 },
+
+                destroy: function () {
+                    WYTool.queryComponent('#infoBack').show();
+                    WYTool.queryComponent('#infofunction').hide();
+                },
+
                 itemsingletap: function (list, index, target, record, e, eOpts) {
                     var popup = Ext.create('YzMobile.view.contact.ContactPopup');
                     popup.onDataSet(record);
@@ -43,8 +58,14 @@ Ext.define('YzMobile.controller.ContactControl', {
             },
             contactmain: {
                 show: function () {
+                    WYTool.queryComponent('#infomore').show();
+
+                },
+                hide: function () {
+                    WYTool.queryComponent('#infomore').hide();
 
                 }
+
                 //hide: function () {
                 //    Ext.ComponentQuery.query('#infomore')[0].hide();
                 //}
