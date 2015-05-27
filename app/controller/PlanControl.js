@@ -9,7 +9,8 @@ Ext.define('YzMobile.controller.PlanControl', {
             main: 'main',
             info: 'main info',
             planSearch: 'planSearch',
-            planSearchBtn: '[itemId=planSearch]'
+            planSearchBtn: '[itemId=planSearch]',
+            pdfBtn:'[itemId=pdfbtn]'
         },
 
         control: {
@@ -35,6 +36,9 @@ Ext.define('YzMobile.controller.PlanControl', {
                     this.getMain().setActiveItem(this.getInfo());
                 }
             },
+            pdfBtn:{
+                tap:'onPdfBtn'
+            },
             'planList': {
                 initialize: function () {
                     var store = Ext.getStore('PlanStore');
@@ -53,7 +57,7 @@ Ext.define('YzMobile.controller.PlanControl', {
                 itemtap: function (list, index, target, record, e, eOpts) {
                     if (this.listInfo.index == 1) {
 
-                      // 最后一级菜单
+                        // 最后一级菜单
                         //Ext.Msg.alert(record.data.Sname);
                         this.pdf = Ext.create('YzMobile.view.plan.PlanPDF');
                         //this.getInfo().destroy();
@@ -85,6 +89,10 @@ Ext.define('YzMobile.controller.PlanControl', {
                 }
             }
         }
+    },
+
+    onPdfBtn:function(){
+        this.getMain().setActiveItem(this.getInfo());
     },
 
     onBack: function () {
