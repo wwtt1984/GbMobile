@@ -52,8 +52,14 @@ Ext.define('YzMobile.controller.PlanControl', {
 
                 itemtap: function (list, index, target, record, e, eOpts) {
                     if (this.listInfo.index == 1) {
+
                         // 最后一级菜单
-                        Ext.Msg.alert(record.data.Sname);
+                        //Ext.Msg.alert(record.data.Sname);
+                        this.pdf = Ext.create('YzMobile.view.plan.PlanPDF');
+                        this.getInfo().push(this.pdf);
+                        this.getMain().setActiveItem(this.getInfo());
+
+
                     } else {
                         // 分级菜单
                         this.listInfo.index++;
