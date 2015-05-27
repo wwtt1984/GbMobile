@@ -57,9 +57,11 @@ Ext.application({
         'rain.RainDetail',
         'rain.RainWarn',
         'rain.RainWarnFromPush',
+        'rain.RainSearch',
 
         'water.Water',
         'water.WaterLine',
+        'water.WaterSearch',
 
         'weather.Weather',
 
@@ -191,7 +193,9 @@ Ext.application({
         'PlanSearchStore',
         'MainStore',
         'SiteStore',
-        'SettingStore'
+        'SettingStore',
+        'RainSearchStore',
+        'WaterSearchStore'
     ],
 
     controllers: [
@@ -234,7 +238,6 @@ Ext.application({
     launch: function () {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingImg').destroy();
-
         // Initialize the main view
         Ext.Viewport.add(Ext.create('YzMobile.view.Main'));
         alert('已修改');
