@@ -19,6 +19,25 @@ Ext.define('YzMobile.view.flood.MainInfo', {
         layout: 'fit',
 
         tpl: Ext.create('Ext.XTemplate',
+
+            '<div class="tidetime" style="padding:0 0 0 10px;width:100%; height: 2em; font-size:18px; font-weight: bold; line-height: 2em; color:#000;"><img src="resources/images/001.png" style="width:20px;height:20px;float:left;margin-top:0.45em;"/>当日最大降雨值情况</div>',
+            '<div style="height: 2.2em; font-size:15px; line-height: 2.2em;margin:0 15px 0 15px;">',
+            '<div style="width:70%;height:100%;float:right;text-align: center;">',
+            '</div>',
+            '</div>',
+            '<div style="min-height:4.4em;margin:0 10px 0 10px; border: 1px #ccc solid; background: #fff;  font-size:16px; font-weight: bold; line-height: 2.2em;border-radius: .6em;text-align:center; color: #333;">',
+            '<div style="height:2.2em; width: 100%; border-bottom: 1px #ccc solid;">',
+            '<div style="height: 100%; width: 30%; float:left;">1小时降雨值</div>',
+            '<div style="height: 100%; width: 35%; float:left;">3小时降雨值</div>',
+            '<div style="height: 100%; width: 35%; float:right;">当日降雨值</div>',
+            '</div>',
+            '<div style="height:2.2em; width: 100%;">',
+            '<div style="height: 100%; width: 30%; float:left;color: blue;" id={[this.getLinkId(values,values.Maxr1hName,"R")]}>{[this.getMaxRain(values.Maxr1hValue)]}</div>',
+            '<div style="height: 100%; width: 35%; float:left;color: blue;" id={[this.getLinkId(values,values.Maxr3hName,"R")]}>{[this.getMaxRain(values.Maxr3hValue)]}</div>',
+            '<div style="height: 100%; width: 35%; float:right;color: blue;" id={[this.getLinkId(values,values.Maxr24hName,"R")]}>{[this.getMaxRain(values.Maxr24hValue)]}</div>',
+            '</div>',
+            '</div>',
+            '{[this.getTodayYlOverCode(values.Maxr1hName)]}',
             '<div class="tidetime" style="padding:0 0 0 10px;width:100%; height: 2em; font-size:18px; font-weight: bold; line-height: 2em; color:#000;"><img src="resources/images/001.png" style="width:20px;height:20px;float:left;margin-top:0.45em;"/>当日警戒雨量站个数</div>',
             '<div style="height: 2.2em; font-size:15px; line-height: 2.2em;margin:0 15px 0 15px;">',
             '<div style="width:30%;height:100%;float:left;">单位:个</div>',
@@ -85,6 +104,11 @@ Ext.define('YzMobile.view.flood.MainInfo', {
                     return string;
                 },
 
+                //获取最大降雨值
+                getMaxRain: function (value) {
+                    return value;
+                },
+
                 getWarn: function (value) {
                     if(value > 0)
                     {
@@ -110,10 +134,15 @@ Ext.define('YzMobile.view.flood.MainInfo', {
                 addImg: function (values, value, type) {
 
                     if (type == "d") {
+                        //点击危险雨量站
                         Ext.ComponentQuery.query('#imaininfo')[0].onDataView1(value);
                     }
-                    else {
+                    else if(type == "w"){
+                        //点击警戒雨量站
                         Ext.ComponentQuery.query('#imaininfo')[0].onDataView(value);
+                    }else{
+                        //点击警戒雨量站
+                        Ext.ComponentQuery.query('#imaininfo')[0].onDataView2(value);
                     }
                 },
                 getOverNum: function (value) {
@@ -144,6 +173,25 @@ Ext.define('YzMobile.view.flood.MainInfo', {
 
                     return string;
                 },
+
+                //当日降雨量（点击有效数字出现的div）
+                getTodayYlOverCode: function (value) {
+                    var string = '';
+                    if (value) {
+                        string += '<div id="divRainyl" style="display:none;margin:10px 10px 0 10px;min-height:2.2em; border: 1px #ccc solid; background: #fff;  font-size:16px; font-weight: bold; line-height: 2.2em;border-radius: .6em;text-align:center; color:#333;">';
+                        string += '<div style="height:2.2em; width: 100%;text-align:center;border-top: 1px #ccc solid;"><div style="height: 100%; width: 30%; float:left;" id = "divRainvalue1">' + value + '</div>';
+                        string += '</div>';
+                        string += '</div>';
+
+                    }
+                    else {
+                        string += '<div style="margin:0 10px 0 10px;height:2.2em:border: 1px #ccc solid; background: #fff;  font-size:16px; font-weight: bold; line-height: 2.2em;border-radius: .6em;padding-left:10px; color:#333;">当前无降雨信息</div>';
+                    }
+
+                    return string;
+                },
+
+                //警戒雨量站（点击有效数字出现的div）
                 getYlOverCode: function (value) {
                     var string = '';
                     if (value) {
@@ -169,6 +217,7 @@ Ext.define('YzMobile.view.flood.MainInfo', {
 
                     return string;
                 },
+                //危险雨量站（点击有效数字出现的div）
                 getYlDOverCode: function (value) {
 
                     var string = '';
@@ -228,7 +277,7 @@ Ext.define('YzMobile.view.flood.MainInfo', {
         )
     },
 
-
+    //警戒雨量站
     onDataView: function (value, type) {
 
         if (value) {
@@ -282,7 +331,7 @@ Ext.define('YzMobile.view.flood.MainInfo', {
 
 
     },
-
+    //危险雨量站
     onDataView1: function (value, type) {
 
         if (value) {
@@ -336,6 +385,26 @@ Ext.define('YzMobile.view.flood.MainInfo', {
 
     },
 
+    //降雨信息
+    onDataView2: function (value, type) {
+
+        if (value) {
+            var div = document.getElementById("divRainyl");
+            var bdis = div.style.display;
+            if (bdis == "none") {
+                div.style.display = "block";
+            }
+            else {
+                div.style.display = "none";
+            }
+            var div1 = document.getElementById("divRainvalue1");
+            if (div1) {
+                div1.innerText = value;
+            }
+        }
+
+    },
+
     initialize: function () {
 
     },
@@ -346,7 +415,6 @@ Ext.define('YzMobile.view.flood.MainInfo', {
             xtype: 'loadmask',
             message: '加载中,请稍后...'
         });
-
         var me = this;
         var store = Ext.getStore('MainStore');
         Ext.data.proxy.SkJsonp.setUrl(localStorage.getItem('proxyUrl'));
