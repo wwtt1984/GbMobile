@@ -15,7 +15,7 @@ Ext.define('YzMobile.view.gis.GisMain', {
 
     config: {
         itemId: 'gismain',
-        title: 'GIS地图',
+        title: '地图',
         layout: 'fit',
         items: [
             {

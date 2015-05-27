@@ -240,7 +240,6 @@ Ext.application({
         Ext.fly('appLoadingImg').destroy();
         // Initialize the main view
         Ext.Viewport.add(Ext.create('YzMobile.view.Main'));
-        alert('已修改');
     },
 
     onUpdated: function () {
