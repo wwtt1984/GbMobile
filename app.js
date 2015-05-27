@@ -238,11 +238,8 @@ Ext.application({
     launch: function () {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingImg').destroy();
-        //////
-
         // Initialize the main view
         Ext.Viewport.add(Ext.create('YzMobile.view.Main'));
-        alert('');
     },
 
     onUpdated: function () {
