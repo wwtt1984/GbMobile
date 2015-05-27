@@ -1,14 +1,14 @@
 /**
  * Created by kukiss on 2015/3/19 0019.
  */
-Ext.define('YzMobile.view.contact.ContactSearch', {
+Ext.define('YzMobile.view.rain.RainSearch', {
     extend: 'Ext.List',
-    xtype: 'contactSearch',
+    xtype: 'rainSearch',
 
     requires: [],
 
     config: {
-        title: '通讯录搜索',
+        title: '雨情搜索',
         itemId: 'ctsearch',
 
         cls: 'contact-list',
@@ -18,7 +18,7 @@ Ext.define('YzMobile.view.contact.ContactSearch', {
         //itemTpl defines the template for each item in the list
         itemTpl: Ext.create('Ext.XTemplate',
             '<div class="contact-list-item">',
-            '    <h1>{personNM}&nbsp;&nbsp;</h1>',
+            '    <h1>{stnm}</h1>',
             '</div>'
         ),
 
@@ -33,19 +33,6 @@ Ext.define('YzMobile.view.contact.ContactSearch', {
         disableSelection: true,
 
         items: [
-            //{
-            //    xtype: 'toolbar', title: '通讯录搜索', docked: 'top',
-            //    items: [
-            //        {
-            //            xtype: 'button', ui: 'back', text: '返回', // 返回按钮
-            //            listeners: {
-            //                tap: function () {
-            //                    Ext.ComponentQuery.query('#vMain')[0].setActiveItem(Ext.ComponentQuery.query('contactList')[0]); // back
-            //                }
-            //            }
-            //        },
-            //    ]
-            //},
             {
                 xtype: 'toolbar',
                 docked: 'top',
@@ -73,20 +60,12 @@ Ext.define('YzMobile.view.contact.ContactSearch', {
         ]
     },
 
-    //listeners: {
-    //    itemtap: function (list, index, target, record, e, eOpts) {
-    //        var popup = Ext.create('YzMobile.view.contact.ContactPopup');
-    //        popup.onDataSet(record);
-    //        popup.showBy(target);
-    //    }
-    //},
-
     onSearchKeyUp: function (field) {
+        var me = this;
+
         //get the store and the value of the field
         var value = field.getValue(),
-            store = Ext.getStore('ContactSearchStore');
-
-        var me = this;
+            store = Ext.getStore('RainSearchStore');
 
         //first clear any current filters on the store. If there is a new value, then suppress the refresh event
         store.clearFilter(!!value);

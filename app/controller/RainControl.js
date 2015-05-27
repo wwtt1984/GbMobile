@@ -28,6 +28,12 @@ Ext.define('YzMobile.controller.RainControl', {
 
         control: {
             rain: {
+                show: function () {
+                    WYTool.queryComponent('#info_search').show();
+                },
+                hide: function () {
+                    WYTool.queryComponent('#info_search').hide();
+                },
                 itemsingletap: 'onRainItemTap',
                 itemtaphold: 'onRainItemTapHold'
             },
@@ -61,6 +67,17 @@ Ext.define('YzMobile.controller.RainControl', {
                 initialize: function () {
                     Ext.ComponentQuery.query('#infosearch')[0].show();
                 }
+            },
+
+            'rainSearch' : {
+                initialize: function () {
+                    Ext.ComponentQuery.query('#infosearch')[0].hide();
+
+                    var store = Ext.getStore('RainSearchStore');
+                    Ext.data.proxy.SkJsonp.setUrl(localStorage.getItem('proxyUrl'));
+                    Ext.data.proxy.SkJsonp.loadStore(store, 'GetYqInfoSearch', null);
+                },
+                itemsingletap: 'onRainItemTap'
             }
         }
     },
@@ -111,13 +128,13 @@ Ext.define('YzMobile.controller.RainControl', {
         //
         //me.stnm = record.data.stnm;
         //me.onRainDetailLoad(record, date);
+
         this.stcd = record.data.stcd;
 
-        this.getInfo().push(Ext.create('YzMobile.view.rain.RainDetail'));
+        WYTool.queryComponent('info').push(Ext.create('YzMobile.view.rain.RainDetail'));
         this.onRainDetailLoad(record, Ext.Date.format(new Date(), 'Y-m-d').toString());
 
         this.rainRecord = record;
-
     },
 
     onRainItemTapHold: function () {
@@ -126,7 +143,7 @@ Ext.define('YzMobile.controller.RainControl', {
 
     /* 显示预警信息的弹窗 */
     onWarningTap: function () {
-        var store = Ext.getStore('RainStore')
+        var store = Ext.getStore('RainStore');
 
         // 统计数据, 1, 24小时内降水超过30的, 以及最大的降雨测站
         var warning1h = 0, warning3h = 0, warning24h = 0, maxRain = 0, danger1h = 0, danger3h = 0, danger24h = 0;
