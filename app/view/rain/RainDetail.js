@@ -5,12 +5,9 @@ Ext.define('YzMobile.view.rain.RainDetail', {
     extend: 'Ext.tab.Panel',
     xtype:'raindetail',
 
-    show: function () {
-        Ext.ComponentQuery.query('#infofunction')[0].hide();
-    },
-    hide: function () {
-        Ext.ComponentQuery.query('#infofunction')[0].show();
-    },
+    //show: function () {
+    //    Ext.ComponentQuery.query('#infofunction')[0].hide();
+    //},
 
     config: {
         title: '雨情详细',

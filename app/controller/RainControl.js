@@ -20,7 +20,7 @@ Ext.define('YzMobile.controller.RainControl', {
             info: 'main info',
             infofunction: '[itemId=infofunction]',
             rain: 'info rain',
-            rainbar: 'info rainbar',
+            rainbar: 'rainbar',
             rainview: 'rain',
             rainWarn: 'rainwarn',
             dateselect:'dateselect'
@@ -54,7 +54,7 @@ Ext.define('YzMobile.controller.RainControl', {
                 }
             },
 
-            rainbar: {
+            'rainbar': {
                 show: function () {
                     Ext.ComponentQuery.query('#infosearch')[0].show();
                 },
@@ -65,7 +65,10 @@ Ext.define('YzMobile.controller.RainControl', {
 
             'raindetail': {
                 initialize: function () {
-                    Ext.ComponentQuery.query('#infosearch')[0].show();
+                    WYTool.queryComponent('#infofunction').hide();
+                },
+                destroy: function() {
+                    Ext.ComponentQuery.query('#infosearch')[0].hide();
                 }
             },
 
