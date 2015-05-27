@@ -57,9 +57,11 @@ Ext.application({
         'rain.RainDetail',
         'rain.RainWarn',
         'rain.RainWarnFromPush',
+        'rain.RainSearch',
 
         'water.Water',
         'water.WaterLine',
+        'water.WaterSearch',
 
         'weather.Weather',
 
@@ -191,7 +193,9 @@ Ext.application({
         'PlanSearchStore',
         'MainStore',
         'SiteStore',
-        'SettingStore'
+        'SettingStore',
+        'RainSearchStore',
+        'WaterSearchStore'
     ],
 
     controllers: [

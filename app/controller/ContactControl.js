@@ -26,6 +26,21 @@ Ext.define('YzMobile.controller.ContactControl', {
                 itemtap: 'onContactListTap',
                 itemtaphold: 'onContactListLongTap'
             },
+            contactSearch : {
+                initialize: function () {
+                    WYTool.queryComponent('#infofunction').hide();
+                    WYTool.queryComponent('#showByWhat').hide();
+
+                    var store = Ext.getStore('ContactSearchStore');
+                    Ext.data.proxy.SkJsonp.setUrl(localStorage.getItem('proxyUrl'));
+                    Ext.data.proxy.SkJsonp.loadStore(store, 'GetAdressSearch', null);
+                },
+                itemsingletap: function (list, index, target, record, e, eOpts) {
+                    var popup = Ext.create('YzMobile.view.contact.ContactPopup');
+                    popup.onDataSet(record);
+                    popup.showBy(target);
+                }
+            },
             contactmain: {
                 show: function () {
 
@@ -104,8 +119,11 @@ Ext.define('YzMobile.controller.ContactControl', {
                 }
             },
 
-            '[itemId=infoBack]': {
-            }
+           '[itemId=contact_search]': {
+               tap: function () {
+                   WYTool.queryComponent('info').push({xtype:'contactSearch'});
+               }
+           }
         }
         //
         //    contactSearchBtn: {
@@ -353,8 +371,8 @@ Ext.define('YzMobile.controller.ContactControl', {
                     {xtype: 'button', text: '按姓名', itemId: 'showByName'}, // 按名字显示
                     {xtype: 'spacer', height: 10},
                     {xtype: 'button', text: '按行政区划', itemId: 'showByArea'}, // 按行政区划显示
-                    //{xtype: 'spacer', height: 10},
-                    //{xtype: 'button', text: '按职位', itemId: 'showByJob'} // 按职位显示
+                    {xtype: 'spacer', height: 10},
+                    {xtype: 'button', text: '直接搜索', itemId: 'contact_search'}
                 ]
             });
         }

@@ -33,6 +33,15 @@ Ext.define('YzMobile.view.Info', {
                     hidden: true
                 },
                 {
+                    xtype:'button',
+                    itemId: 'info_search',
+                    ui: 'plain',
+                    iconCls: 'search',
+                    text:'搜索',
+                    iconMasked: true,
+                    hidden: true
+                },
+                {
                     xtype: 'button',
                     itemId: 'rainwarning',
                     text: '降雨预警',

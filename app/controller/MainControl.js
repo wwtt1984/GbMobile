@@ -624,10 +624,12 @@ Ext.define('YzMobile.controller.MainControl', {
         switch (record.data.name) {
             case titlestr[0]:
                 me.getApplication().getController('RainControl').onRainInitialize();
+                me.infotype = 'rain';
                 me.searchxtype = 'rain';
                 break;
             case titlestr[1]:
                 me.getApplication().getController('WaterControl').onWaterInitialize();
+                me.infotype = 'water';
                 me.searchxtype = 'water';
                 break;
             case titlestr[2]:

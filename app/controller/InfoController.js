@@ -17,6 +17,23 @@ Ext.define('YzMobile.controller.InfoController', {
                             break;
                     }
                 }
+            },
+
+            '[itemId=info_search]': {
+                tap: function () {
+                    switch (WYTool.queryController(this, 'MainControl').infotype) {
+                        case 'rain':
+                            // show rain record search view
+                            WYTool.queryComponent('info').push({xtype: 'rainSearch'});
+                            WYTool.queryComponent('#infofunction').hide();
+                            break;
+                        case 'water':
+                            // show water record search view
+                            WYTool.queryComponent('info').push({xtype: 'waterSearch'});
+                            WYTool.queryComponent('#infofunction').hide();
+                            break;
+                    }
+                }
             }
         }
     }

@@ -30,6 +30,12 @@ Ext.define('YzMobile.controller.WaterControl', {
 
         control: {
             water: {
+                show: function () {
+                    WYTool.queryComponent('#info_search').show();
+                },
+                hide: function () {
+                    WYTool.queryComponent('#info_search').hide();
+                },
                 itemsingletap: 'onWaterItemTap'
             },
             waterview: {
@@ -42,6 +48,17 @@ Ext.define('YzMobile.controller.WaterControl', {
             },
             waterwarning: {
                 tap: 'onWarningTap'
+            },
+
+            'waterSearch': {
+                initialize: function() {
+                    Ext.ComponentQuery.query('#infosearch')[0].hide();
+
+                    var store = Ext.getStore('WaterSearchStore');
+                    Ext.data.proxy.SkJsonp.setUrl(localStorage.getItem('proxyUrl'));
+                    Ext.data.proxy.SkJsonp.loadStore(store, 'GetSqInfoSearch', null);
+                },
+                itemsingletap: 'onWaterItemTap'
             }
         }
     },
