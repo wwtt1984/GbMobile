@@ -76,7 +76,7 @@ Ext.define('YzMobile.controller.TfControl', {
                         tfactive = store.getAt(0).get('tfactive');
                         //me.tfmain.setTitle(tfname + "（" + tfbh + "）");
                         me.tfname = tfname;
-                        me.tfbh = tfbh;
+                       me.tfbh = tfbh;
                         me.onTitleBarSet();
                         me.mydate(tfname, tfbh, tfactive);
                     }
@@ -159,12 +159,12 @@ Ext.define('YzMobile.controller.TfControl', {
         me.getApplication().getController('MainControl').getInfosearch().show();
         me.reloadtfsj(record);
         me.getInfo().pop();
-        me.getInfo().getNavigationBar().setTitle(record.data.tfname + "（" + record.data.tfbh + "）");
+        me.getInfo().getNavigationBar().setTitle(record.data.tfname);
     },
 
     onTitleBarSet: function(){
         var me = this;
-        me.getInfo().getNavigationBar().setTitle(me.tfname + "（" + me.tfbh + "）");
+        me.getInfo().getNavigationBar().setTitle(me.tfname );
     },
 
 

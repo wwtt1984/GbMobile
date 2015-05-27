@@ -449,7 +449,6 @@ Ext.define('YzMobile.controller.MainControl', {
                     Ext.getCmp('maintitle').onDataSet(records[0].data);
                     me.getMain().setActiveItem(me.getFunctionmain());
 
-                    //debugger;
                     //设置别名
                     //设置tags的时候，传进去的参必须是集合
                     var tagsArr = YzMobile.app.user.sid;

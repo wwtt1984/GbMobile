@@ -836,6 +836,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "YzMobile.store.ProjectTreeStore": [],
   "YzMobile.store.RadarStore": [],
   "YzMobile.store.RainDetailStore": [],
+  "YzMobile.store.RainSearchStore": [],
   "YzMobile.store.RainStore": [],
   "YzMobile.store.SearchStore": [],
   "YzMobile.store.SettingStore": [],
@@ -846,6 +847,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "YzMobile.store.UserStore": [],
   "YzMobile.store.VersionStore": [],
   "YzMobile.store.WaterRainStore": [],
+  "YzMobile.store.WaterSearchStore": [],
   "YzMobile.store.WaterStore": [],
   "YzMobile.store.WeatherStore": [],
   "YzMobile.view.DateSelect": [],
@@ -876,11 +878,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "YzMobile.view.gis.GisTitle": [],
   "YzMobile.view.land.Cloud": [],
   "YzMobile.view.land.HourRain": [],
+  "YzMobile.view.land.ImageView": [],
   "YzMobile.view.land.LandMain": [],
   "YzMobile.view.land.Radar": [],
   "YzMobile.view.land.StrongWeather": [],
   "YzMobile.view.land.ThreeHourRain": [],
   "YzMobile.view.plan.PlanList": [],
+  "YzMobile.view.plan.PlanPDF": [],
   "YzMobile.view.plan.PlanSearch": [],
   "YzMobile.view.plan.PlanTree": [],
   "YzMobile.view.project.ProjectDetail": [],
@@ -892,6 +896,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "YzMobile.view.rain.Rain": [],
   "YzMobile.view.rain.RainBar": [],
   "YzMobile.view.rain.RainDetail": [],
+  "YzMobile.view.rain.RainSearch": [],
   "YzMobile.view.rain.RainWarn": [],
   "YzMobile.view.rain.RainWarnFromPush": [],
   "YzMobile.view.settings.Setting": [],
@@ -905,6 +910,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "YzMobile.view.typhoon.popDetail.TfPopDetailList": [],
   "YzMobile.view.water.Water": [],
   "YzMobile.view.water.WaterLine": [],
+  "YzMobile.view.water.WaterSearch": [],
   "YzMobile.view.weather.Weather": []
 });
 
@@ -1933,6 +1939,7 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "YzMobile.store.RadarStore": [],
   "YzMobile.store.RainDetailStore": [],
+  "YzMobile.store.RainSearchStore": [],
   "YzMobile.store.RainStore": [],
   "YzMobile.store.SearchStore": [],
   "YzMobile.store.SettingStore": [],
@@ -1943,6 +1950,7 @@ Ext.ClassManager.addNameAliasMappings({
   "YzMobile.store.UserStore": [],
   "YzMobile.store.VersionStore": [],
   "YzMobile.store.WaterRainStore": [],
+  "YzMobile.store.WaterSearchStore": [],
   "YzMobile.store.WaterStore": [],
   "YzMobile.store.WeatherStore": [],
   "YzMobile.view.DateSelect": [
@@ -2027,6 +2035,9 @@ Ext.ClassManager.addNameAliasMappings({
   "YzMobile.view.land.HourRain": [
     "widget.hourrain"
   ],
+  "YzMobile.view.land.ImageView": [
+    "widget.imageView"
+  ],
   "YzMobile.view.land.LandMain": [
     "widget.landmain"
   ],
@@ -2041,6 +2052,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "YzMobile.view.plan.PlanList": [
     "widget.planList"
+  ],
+  "YzMobile.view.plan.PlanPDF": [
+    "widget.planpdf"
   ],
   "YzMobile.view.plan.PlanSearch": [
     "widget.planSearch"
@@ -2074,6 +2088,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "YzMobile.view.rain.RainDetail": [
     "widget.raindetail"
+  ],
+  "YzMobile.view.rain.RainSearch": [
+    "widget.rainSearch"
   ],
   "YzMobile.view.rain.RainWarn": [
     "widget.rainwarn"
@@ -2113,6 +2130,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "YzMobile.view.water.WaterLine": [
     "widget.waterline"
+  ],
+  "YzMobile.view.water.WaterSearch": [
+    "widget.waterSearch"
   ],
   "YzMobile.view.weather.Weather": [
     "widget.weather"
