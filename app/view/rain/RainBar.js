@@ -14,8 +14,6 @@ Ext.define('YzMobile.view.rain.RainBar', {
         'Ext.chart.interactions.PanZoom'
     ],
 
-
-
     config: {
         layout: 'fit',
         title: '雨量柱状图',
