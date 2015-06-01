@@ -21,9 +21,9 @@ Ext.define('YzMobile.view.flood.MainInfo', {
         tpl: Ext.create('Ext.XTemplate',
 
             '<div class="tidetime" style="padding:0 0 0 10px;width:100%; height: 2em; font-size:18px; font-weight: bold; line-height: 2em; color:#000;"><img src="resources/images/001.png" style="width:20px;height:20px;float:left;margin-top:0.45em;"/>当日最大降雨值情况</div>',
-            '<div style="height: 2.2em; font-size:15px; line-height: 2.2em;margin:0 15px 0px 15px;">',
+            //'<div style="height: 2.2em; font-size:15px; line-height: 2.2em;margin:0 15px 0px 15px;">',
             '<div style="width:70%;height:100%;float:right;text-align: center;">',
-            '</div>',
+           // '</div>',
             '</div>',
             '<div style="min-height:4.4em;margin:0 10px 10px 10px; border: 1px #ccc solid; background: #fff;  font-size:16px; font-weight: bold; line-height: 2.2em;border-radius: .6em;text-align:center; color: #333;">',
             '<div style="height:2.2em; width: 100%; border-bottom: 1px #ccc solid;">',
