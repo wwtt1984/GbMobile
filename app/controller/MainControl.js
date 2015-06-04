@@ -450,6 +450,7 @@ Ext.define('YzMobile.controller.MainControl', {
                     records[0].data.password = YzMobile.app.user.password;
                     Ext.getCmp('maintitle').onDataSet(records[0].data);
                     me.getMain().setActiveItem(me.getFunctionmain());
+
                     me.onCheckVesion(me);  /////////////////判断是否有新版本/////////////////////
 
                     //设置别名
