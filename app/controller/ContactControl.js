@@ -46,8 +46,10 @@ Ext.define('YzMobile.controller.ContactControl', {
                 },
 
                 destroy: function () {
-                    WYTool.queryComponent('#infoBack').show();
-                    WYTool.queryComponent('#infofunction').hide();
+                    if(this.listBackStack.length > 0){
+                        WYTool.queryComponent('#infoBack').show();
+                        WYTool.queryComponent('#infofunction').hide();
+                    }
                 },
 
                 itemsingletap: function (list, index, target, record, e, eOpts) {
@@ -389,11 +391,12 @@ Ext.define('YzMobile.controller.ContactControl', {
                 hideOnMaskTap: true,
                 itemId: 'showByWhat',
                 items: [
+                    {xtype: 'button', text: '直接搜索', itemId: 'contact_search'},
+                    {xtype: 'spacer', height: 10},
                     {xtype: 'button', text: '按姓名', itemId: 'showByName'}, // 按名字显示
                     {xtype: 'spacer', height: 10},
                     {xtype: 'button', text: '按行政区划', itemId: 'showByArea'}, // 按行政区划显示
-                    {xtype: 'spacer', height: 10},
-                    {xtype: 'button', text: '直接搜索', itemId: 'contact_search'}
+
                 ]
             });
         }

@@ -25,7 +25,7 @@ Ext.application({
     //mapCenter: [118.835634,29.57190, 10],//淳安
     //mapCenter: [121.8808,29.5447, 10],//象山
     mapCenter: [118.344985,29.049739, 10],//开化
-    user: {sid: '', name: '', password: '', version: '1.0.5',cityname:'开化',global:'http://115.236.2.245:38019/data.ashx'},
+    user: {sid: '', name: '', password: '', version: '1.0.9',cityname:'开化',global:'http://115.236.2.245:38019/data.ashx'},
     local: {userfile: 'yzlogin.json'},//
 
 

@@ -91,6 +91,8 @@ Ext.define('YzMobile.controller.MainControl', {
                     //YzMobile.app.mapCenter[1] = record.data.ScenterLat;
                     //YzMobile.app.mapCenter[2] = record.data.ScenterZoom;
                     YzMobile.app.user.cityname = record.data.ScityName;
+                      localStorage.setItem('cityID',record.data.Scityid);
+
                     localStorage.setItem('mapLng',record.data.ScenterLng);
                     localStorage.setItem('mapLat',record.data.ScenterLat);
                     localStorage.setItem('mapZoom',record.data.ScenterZoom);
@@ -449,6 +451,8 @@ Ext.define('YzMobile.controller.MainControl', {
                     Ext.getCmp('maintitle').onDataSet(records[0].data);
                     me.getMain().setActiveItem(me.getFunctionmain());
 
+                    me.onCheckVesion(me);  /////////////////判断是否有新版本/////////////////////
+
                     //设置别名
                     //设置tags的时候，传进去的参必须是集合
                     var tagsArr = YzMobile.app.user.sid;
@@ -457,7 +461,6 @@ Ext.define('YzMobile.controller.MainControl', {
 
 
                     // me.onUserWriteJson(store); //将验证成功的用户信息，存在本地
-                    me.onCheckVesion(me);  /////////////////判断是否有新版本/////////////////////
 
 
                 },
@@ -731,7 +734,7 @@ Ext.define('YzMobile.controller.MainControl', {
     onCheckVesion: function (me) {
         var store = Ext.getStore('VersionStore');
         Ext.data.proxy.SkJsonp.setUrl(YzMobile.app.user.global);
-        var results = "android$jonsp";
+        var results = "android$jonsp$"+localStorage.getItem('cityID');
         Ext.data.proxy.SkJsonp.loadStore(store, 'CheckVersion', results, {
             success: function (records) {
                 if (records.length > 0) {
